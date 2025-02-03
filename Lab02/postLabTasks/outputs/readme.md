@@ -8,3 +8,4 @@
 ![task03_code_postlab](https://github.com/user-attachments/assets/6e9de7a5-a304-48a3-98c1-6c4faa7e8319)
 ![task03_filePic_postlab](https://github.com/user-attachments/assets/e6846eca-1d25-4fd5-b013-851d3734b7fc)
 # task04:
+![task04_postlab](https://github.com/user-attachments/assets/d46f1cc4-0959-4a3b-afe4-2dce86bda7f0)
