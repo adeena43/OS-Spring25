@@ -1,0 +1,6 @@
+Hello, how are you?
+My name is Adina.
+I am currently enrolled in BSAI in FAST NUCES Khi campus.
+This is OS lab course taught by Ms. Khadija tul Kubra.
+We are using Ubuntu.
+Ok bye.
