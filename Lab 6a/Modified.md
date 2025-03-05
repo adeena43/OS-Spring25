@@ -1,3 +1,6 @@
+## MODIFIED
+
+```c
 #include <sys/types.h>
 #include <stdio.h>
 #include <string.h>
@@ -41,3 +44,7 @@ int main() {
     
     return 0;
 }
+```
+
+## OUTPUT:
+![Screenshot from 2025-03-05 13-01-34](https://github.com/user-attachments/assets/732e0482-4e71-4321-b132-cfbd85c8f17a)
