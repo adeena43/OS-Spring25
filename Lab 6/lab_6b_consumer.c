@@ -5,52 +5,29 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <string.h>
-
-#define FIFO_FILE "myfifo"
-
-int main()
-{
+#define FIFO_FILE "/tmp/myfifo"
+int main() {
     int fd;
-    char buffer[1024];
+    char buffer[BUFSIZ];
     ssize_t num_bytes;
-
-    if (mkfifo(FIFO_FILE, 0666) == -1) {
-        perror("mkfifo");
-        exit(EXIT_FAILURE);
-    }
-
-    printf("Waiting for producer to connect...\n");
+    mkfifo(FIFO_FILE, 0666); 
     fd = open(FIFO_FILE, O_RDONLY);
     if (fd == -1) {
         perror("open");
         exit(EXIT_FAILURE);
     }
-    printf("Producer connected. Ready to receive messages.\n");
-
-    while (1) {
-        memset(buffer, 0, sizeof(buffer)); 
-        num_bytes = read(fd, buffer, sizeof(buffer) - 1); 
-
+    while (1) { 
+        printf("Consumer read message: %s",buffer);
+	num_bytes = read(fd, buffer, BUFSIZ);	
         if (num_bytes == -1) {
             perror("read");
             exit(EXIT_FAILURE);
         }
-        if (num_bytes == 0) {
-            printf("Producer has closed the connection.\n");
-            break;
-        }
-
-        buffer[num_bytes] = '\0'; 
-        printf("Consumer received: %s", buffer);
-
-        if (strncmp(buffer, "exit", 4) == 0) {
+        if (strncmp(buffer, "exit", 4) == 0) { 
             break;
         }
     }
-
     close(fd);
     unlink(FIFO_FILE); 
     return 0;
 }
-
-	
