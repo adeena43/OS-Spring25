@@ -4,53 +4,54 @@
 #include <pthread.h>
 
 #define SIZE 10000000
-#define THREADS 10
+#define NUM_THREADS 10
 
 float *A, *B, *C;
 
-typedef struct {
-    int start, end;
-} ThreadData;
+void* vector_add(void* arg) {
+    int thread_id = *(int*)arg;
+    int chunk_size = SIZE / NUM_THREADS;
+    int start = thread_id * chunk_size;
+    int end = (thread_id == NUM_THREADS - 1) ? SIZE : start + chunk_size;
 
-
-void *compute_sum(void *arg) {
-    ThreadData *data = (ThreadData *)arg;
-    for (int i = data->start; i < data->end; i++) {
+    for (int i = start; i < end; i++) {
         C[i] = A[i] + B[i];
     }
+
     pthread_exit(NULL);
 }
 
 int main() {
-    pthread_t threads[THREADS];
-    ThreadData thread_data[THREADS];
-
-    A = (float *)malloc(SIZE * sizeof(float));
-    B = (float *)malloc(SIZE * sizeof(float));
-    C = (float *)malloc(SIZE * sizeof(float));
+    A = (float*)malloc(SIZE * sizeof(float));
+    B = (float*)malloc(SIZE * sizeof(float));
+    C = (float*)malloc(SIZE * sizeof(float));
 
     if (A == NULL || B == NULL || C == NULL) {
         printf("Memory allocation failed!\n");
         return 1;
     }
 
+    // Initialize A and B
     for (int i = 0; i < SIZE; i++) {
         A[i] = i * 1.0f;
         B[i] = i * 2.0f;
     }
 
-    int chunk_size = SIZE / THREADS;
-    for (int i = 0; i < THREADS; i++) {
-        thread_data[i].start = i * chunk_size;
-        thread_data[i].end = (i == THREADS - 1) ? SIZE : (i + 1) * chunk_size;
-        pthread_create(&threads[i], NULL, compute_sum, &thread_data[i]);
+    pthread_t threads[NUM_THREADS];
+    int thread_ids[NUM_THREADS];
+
+    // Create threads
+    for (int i = 0; i < NUM_THREADS; i++) {
+        thread_ids[i] = i;
+        pthread_create(&threads[i], NULL, vector_add, (void*)&thread_ids[i]);
     }
 
-    for (int i = 0; i < THREADS; i++) {
+    // Join threads
+    for (int i = 0; i < NUM_THREADS; i++) {
         pthread_join(threads[i], NULL);
     }
 
-    printf("Parallel computation with %d threads completed.\n", THREADS);
+    printf("Concurrent computation completed with %d threads.\n", NUM_THREADS);
 
     free(A);
     free(B);
