@@ -1,3 +1,11 @@
 # a)
+![a_ss](https://github.com/user-attachments/assets/e7b5854c-7331-4f47-9b92-6db9d9cb9d7b)
 # b)
+  ## outputon screen:
+  ![code2](https://github.com/user-attachments/assets/c62b363d-ab27-41b6-8de3-b95ba19a21cf)
+  
+  ## entries in the shared_file.txt:
+  ![textFileSS](https://github.com/user-attachments/assets/64bacef9-2749-4838-a5c2-1eaa8bd982b4)
+
 # c)
+
