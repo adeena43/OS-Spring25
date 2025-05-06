@@ -1,0 +1,272 @@
+
+Basic File and Directory Commands
+
+1. ls -l
+   Description: Lists files and directories in long/detailed format.
+   Example: ls -l
+
+2. ls
+   Description: Lists files and directories in the current directory.
+   Example: ls
+
+3. cd /home/user
+   Description: Changes the current directory to /home/user.
+   Example: cd /home/user
+
+4. mkdir project
+   Description: Creates a new directory named 'project'.
+   Example: mkdir project
+
+5. rmdir project
+   Description: Removes an empty directory named 'project'.
+   Example: rmdir project
+
+6. rm file.txt
+   Description: Removes a file named 'file.txt'.
+   Example: rm file.txt
+
+7. rm -r folder
+   Description: Removes a directory and its contents recursively.
+   Example: rm -r folder
+
+8. cp file.txt /home/user
+   Description: Copies 'file.txt' to the /home/user directory.
+   Example: cp file.txt /home/user
+
+9. mv old.txt new.txt
+   Description: Renames 'old.txt' to 'new.txt'.
+   Example: mv old.txt new.txt
+
+10. mv old.txt /home/user
+    Description: Moves 'old.txt' to /home/user directory.
+    Example: mv old.txt /home/user
+
+11. cat file.txt
+    Description: Displays the contents of 'file.txt'.
+    Example: cat file.txt
+
+12. head file.txt
+    Description: Shows the first 10 lines of 'file.txt'.
+    Example: head file.txt
+
+13. tail file.txt
+    Description: Shows the last 10 lines of 'file.txt'.
+    Example: tail file.txt
+
+14. clear
+    Description: Clears the terminal screen.
+    Example: clear
+
+File Permissions and Ownership
+
+15. chmod 775 file.txt
+    Description: Changes permissions to rwxrwxr-x.
+    Example: chmod 775 file.txt
+
+    Permission Values:
+    4 = Read (r)
+    2 = Write (w)
+    1 = Execute (x)
+    Example Total: 7 = r + w + x
+
+16. chown user:group file.txt
+    Description: Changes ownership of file to a specific user and group.
+    Example: chown john:developers file.txt
+
+17. chgrp groupname file.txt
+    Description: Changes the group ownership of the file.
+    Example: chgrp developers file.txt
+
+Process Management
+
+18. ps aux
+    Description: Displays all running processes with detailed info.
+    Example: ps aux
+
+19. top
+    Description: Displays real-time system resource usage.
+    Example: top
+
+20. kill 1234
+    Description: Terminates the process with PID 1234.
+    Example: kill 1234
+
+21. killall firefox
+    Description: Kills all instances of the 'firefox' process.
+    Example: killall firefox
+
+22. bg %1
+    Description: Resumes job number 1 in the background.
+    Example: bg %1
+
+23. jobs
+    Description: Lists current background jobs.
+    Example: jobs
+
+Disk and Memory Usage
+
+24. df -h
+    Description: Displays disk space usage in human-readable format.
+    Example: df -h
+
+25. du -sh foldername
+    Description: Shows the total size of a directory.
+    Example: du -sh Downloads/
+
+Networking
+
+26. ifconfig
+    Description: Displays network interfaces and IP info.
+    Example: ifconfig
+
+27. ip a
+    Description: Modern alternative to ifconfig for IP address display.
+    Example: ip a
+
+28. ping google.com
+    Description: Tests network connectivity to google.com.
+    Example: ping google.com
+
+29. curl http://example.com
+    Description: Fetches the content from a URL.
+    Example: curl http://example.com
+
+30. wget http://example.com/file.txt
+    Description: Downloads a file from a URL.
+    Example: wget http://example.com/file.txt
+
+User Management
+
+31. whoami
+    Description: Shows the current logged-in user.
+    Example: whoami
+
+32. who
+    Description: Lists all users currently logged in.
+    Example: who
+
+33. sudo adduser SARA
+    Description: Adds a new user named SARA.
+    Example: sudo adduser SARA
+
+34. sudo passwd SARA
+    Description: Sets or changes the password for user SARA.
+    Example: sudo passwd SARA
+
+35. su ALI
+    Description: Switches to user ALI.
+    Example: su ALI
+
+36. id
+    Description: Displays the UID, GID, and groups for the current user.
+    Example: id
+
+Archiving and Compression
+
+37. tar -cvf arc.tar folder/
+    Description: Archives 'folder/' into arc.tar.
+    Example: tar -cvf backup.tar Documents/
+
+38. gzip file.txt
+    Description: Compresses 'file.txt' into 'file.txt.gz'.
+    Example: gzip file.txt
+
+39. gunzip file.txt.gz
+    Description: Decompresses 'file.txt.gz'.
+    Example: gunzip file.txt.gz
+
+40. zip arc.zip file.txt
+    Description: Compresses file.txt into a zip archive.
+    Example: zip arc.zip file.txt
+
+41. unzip arc.zip
+    Description: Extracts the contents of a .zip file.
+    Example: unzip arc.zip
+
+Text Processing
+
+42. grep ".com" log.txt
+    Description: Searches for ".com" in log.txt.
+    Example: grep ".com" log.txt
+
+43. sed "s/old/new/g" file.txt
+    Description: Replaces all occurrences of 'old' with 'new' in file.txt.
+    Example: sed "s/error/success/g" log.txt
+
+44. awk "{print $1}" file.txt
+    Description: Prints the first column/word from each line of file.txt.
+    Example: awk "{print $1}" users.txt
+
+System Info and Utilities
+
+45. uname -a
+    Description: Shows detailed system information.
+    Example: uname -a
+
+46. uptime
+    Description: Shows how long the system has been running.
+    Example: uptime
+
+47. date
+    Description: Displays current date and time.
+    Example: date
+
+48. cal
+    Description: Displays a calendar of the current month.
+    Example: cal
+
+49. free
+    Description: Shows memory usage.
+    Example: free -h
+
+Search and Locate
+
+50. find /home -name "file.txt"
+    Description: Searches for file.txt in /home and its subdirectories.
+    Example: find /home -name "report.txt"
+
+51. locate file.txt
+    Description: Quickly finds file.txt using a prebuilt index.
+    Example: locate file.txt
+
+52. which python3.2
+    Description: Displays the full path of the executable.
+    Example: which python3
+
+Package Management
+
+53. sudo apt install vim
+    Description: Installs the 'vim' package on Debian-based systems.
+    Example: sudo apt install vim
+
+54. sudo yum install httpd
+    Description: Installs 'httpd' (Apache) on RHEL-based systems.
+    Example: sudo yum install httpd
+
+55. sudo dnf install nginx
+    Description: Installs 'nginx' using dnf (Fedora/RHEL).
+    Example: sudo dnf install nginx
+
+System Control
+
+56. sudo shutdown now
+    Description: Shuts down the system immediately.
+    Example: sudo shutdown now
+
+57. sudo reboot
+    Description: Restarts the system.
+    Example: sudo reboot
+
+Standard Streams
+
+58. 0 (stdin - standard input)
+    Description: Input stream, usually from keyboard.
+    Example: cat < file.txt  # uses stdin redirection
+
+59. 1 (stdout - standard output)
+    Description: Output stream, usually to terminal.
+    Example: echo "Hello" > out.txt  # writes stdout to file
+
+60. 2 (stderr - standard error)
+    Description: Error stream, usually for error messages.
+    Example: command 2> error.log  # redirects error to file
